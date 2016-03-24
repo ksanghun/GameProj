@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kpbl", "kpbl\kpbl.vcxproj", "{FE1508F3-C1C5-4801-A613-3AF997074C7E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2FA34D31-B353-4847-A14C-173CC1C43586} = {2FA34D31-B353-4847-A14C-173CC1C43586}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jni_test", "jni_tester\jni_tester.vcxproj", "{2FA34D31-B353-4847-A14C-173CC1C43586}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE1508F3-C1C5-4801-A613-3AF997074C7E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FE1508F3-C1C5-4801-A613-3AF997074C7E}.Debug|Win32.Build.0 = Debug|Win32
+		{FE1508F3-C1C5-4801-A613-3AF997074C7E}.Release|Win32.ActiveCfg = Release|Win32
+		{FE1508F3-C1C5-4801-A613-3AF997074C7E}.Release|Win32.Build.0 = Release|Win32
+		{2FA34D31-B353-4847-A14C-173CC1C43586}.Debug|Win32.ActiveCfg = Debug|Win32
+		{2FA34D31-B353-4847-A14C-173CC1C43586}.Debug|Win32.Build.0 = Debug|Win32
+		{2FA34D31-B353-4847-A14C-173CC1C43586}.Release|Win32.ActiveCfg = Release|Win32
+		{2FA34D31-B353-4847-A14C-173CC1C43586}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
