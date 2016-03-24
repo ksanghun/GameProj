@@ -120,14 +120,14 @@ static void deinitEGL()
 }
 
 //void RenderScene(int w, int h)
-void RenderScene(int w, int h)
-{
-	pGame->RenderReady();
-
-	eglSwapBuffers(sEglDisplay, sEglSurface);
-	checkEGLError();
-
-}
+//void RenderScene(int w, int h)
+//{
+//	pGame->RenderReady();
+//
+//	eglSwapBuffers(sEglDisplay, sEglSurface);
+//	checkEGLError();
+//
+//}
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
@@ -259,8 +259,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 			pGame->RenderReady();
 			
-			eglSwapBuffers(sEglDisplay, sEglSurface);
-			checkEGLError();
+	//		eglSwapBuffers(sEglDisplay, sEglSurface);
+	//		checkEGLError();
 			Sleep(100);
 		}
 	}
