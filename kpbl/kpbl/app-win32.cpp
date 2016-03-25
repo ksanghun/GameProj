@@ -31,7 +31,7 @@ kpbl::CGame2048* pGame = nullptr;
 
 //static HINSTANCE sInstance;
 static const _TCHAR sAppName[] =
-_T("Android LIB Test (Win32)");
+_T("Android LIB Test (by KPBL)");
 static HWND sWnd;
 static int sWindowWidth = WINDOW_WIDTH;
 static int sWindowHeight = WINDOW_HEIGHT;
