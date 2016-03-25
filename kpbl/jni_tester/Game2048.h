@@ -19,6 +19,7 @@ namespace kpbl{
 		bool Initialize(FnTestCallback pFN);  // Initialize
 
 		void RenderReady();
+		void Render();
 		unsigned int OnTouch(int x, int y);
 		
 
@@ -27,6 +28,7 @@ namespace kpbl{
 		CBlockMng m_BlockMng;
 
 		bool _Initialize3D();
+		void _SHOthogonal(float left, float bottom, float right, float top, float n, float f, float* pmatrix);
 		
 
 		// !!! For call back //

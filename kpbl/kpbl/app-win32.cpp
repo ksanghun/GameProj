@@ -238,12 +238,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	}
 
 
+	//=================Creage GL View===============================//
 	pGame = new kpbl::CGame2048;
-	kpbl::FnTestCallback pFn = RTestSwapBuffer;
+	kpbl::FnTestCallback pFn = RTestSwapBuffer;	
 	if (pGame->Initialize(pFn) == false){
 		MessageBox(NULL, NULL, _T("EGL Initialization Error"), MB_OK);
 		return FALSE;
 	}
+	pGame->RenderReady();
+	//================================================================//
 
 	while(gAppAlive){
 		while(PeekMessage(&msg, sWnd, 0,0,PM_NOREMOVE)){
@@ -255,13 +258,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 				gAppAlive = 0;
 		}
 
+		
 		if(gAppAlive){		
-
-			pGame->RenderReady();
-			
-	//		eglSwapBuffers(sEglDisplay, sEglSurface);
-	//		checkEGLError();
-			Sleep(100);
+			pGame->Render();			
+			Sleep(200);
 		}
 	}
 
