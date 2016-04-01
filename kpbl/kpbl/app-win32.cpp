@@ -6,12 +6,10 @@ Andoid Jni-OpenLG Tester by Sanghun Kim
 #include <windows.h>
 #include <TCHAR.h>
 
-
 #include "egl.h"
 #include "glext.h"
 
 #include "../jni_tester/Game2048.h"
-
 
 /******************************************************************************
 Defines
@@ -40,7 +38,6 @@ static EGLConfig sEglConfig;
 static EGLContext sEglContext = EGL_NO_CONTEXT;
 static EGLSurface sEglSurface = EGL_NO_SURFACE;
 
-
 static void checkEGLError()
 {
 	EGLint error = eglGetError();
@@ -58,7 +55,6 @@ void RTestSwapBuffer()
 	eglSwapBuffers(sEglDisplay, sEglSurface);
 	checkEGLError();
 }
-
 
 static BOOL initEGL(HWND wnd)
 {
@@ -228,12 +224,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	ShowWindow(sWnd, nCmdShow);
 	UpdateWindow(sWnd);
 
-
 	// EGL initialization //
 	if (!initEGL(sWnd)){
 		return FALSE;
 	}
-
 
 	//=================Creage GL View===============================//
 	pGame = new kpbl::CGame2048;
@@ -254,7 +248,6 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 			else
 				gAppAlive = 0;
 		}
-
 		
 		if(gAppAlive){		
 			pGame->Render();			
@@ -264,4 +257,3 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	return 0;	
 }
-

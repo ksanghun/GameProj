@@ -11,13 +11,11 @@ namespace kpbl{
 		init();
 	}
 
-
 	CNumBlock::~CNumBlock()
 	{
 		delete[] m_pVertex;
 		delete[] m_pTexCoord;
 	}
-
 
 	void CNumBlock::init(float width, float height)
 	{
@@ -76,32 +74,27 @@ namespace kpbl{
 		float halfW = width*0.48f;
 		float halfH = height*0.48f;
 
-
 		// 1. Triangle Geometry ==============================================//
 		// upper triangle - CCW //
 		m_pVertex[0] = -halfW;	m_pVertex[1] = halfH;		m_pVertex[2] = 0.0f;
 		m_pVertex[3] = -halfW;	m_pVertex[4] = -halfH;		m_pVertex[5] = 0.0f;
 		m_pVertex[6] = halfW;	m_pVertex[7] = halfH;		m_pVertex[8] = 0.0f;
 
-
 		// lower triangle - CCW //
 		m_pVertex[9] = -halfW;	m_pVertex[10] = -halfH;		m_pVertex[11] = 0.0f;
 		m_pVertex[12] = halfW;	m_pVertex[13] = -halfH;		m_pVertex[14] = 0.0f;
 		m_pVertex[15] = halfW;	m_pVertex[16] = halfH;		m_pVertex[17] = 0.0f;
-
 
 		// 2. Texture coordinates =================//
 		m_pTexCoord[0] = 0.0f;	m_pTexCoord[1] = 1.0f;
 		m_pTexCoord[2] = 0.0f;	m_pTexCoord[3] = 0.0f;
 		m_pTexCoord[4] = 1.0f;	m_pTexCoord[5] = 1.0f;
 
-
 		// lower triangle - CCW //
 		m_pTexCoord[6] = 0.0f;	m_pTexCoord[7] = 0.0f;
 		m_pTexCoord[8] = 1.0f;	m_pTexCoord[9] = 0.0f;
 		m_pTexCoord[10] = 1.0f;	m_pTexCoord[11] = 1.0f;
 	}
-
 
 	void CNumBlock::draw()
 	{

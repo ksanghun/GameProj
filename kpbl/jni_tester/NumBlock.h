@@ -1,5 +1,4 @@
 #pragma once
-
 #include "gl.h"
 
 namespace kpbl{
@@ -14,7 +13,6 @@ namespace kpbl{
 		float m_width;
 		float m_height;
 
-
 		// For drawing data //
 		float* m_pVertex;
 		float* m_pTexCoord;
@@ -24,7 +22,6 @@ namespace kpbl{
 
 		// Jennie's addition
 		int valueOfBlock;
-
 
 	public:
 		CNumBlock();

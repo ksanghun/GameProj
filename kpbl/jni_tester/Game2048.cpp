@@ -7,7 +7,6 @@ namespace kpbl{
 	{
 	}
 
-
 	CGame2048::~CGame2048()
 	{
 	}
@@ -58,35 +57,38 @@ namespace kpbl{
     startX = pt_x;
     startY = pt_y;
 	}
-  void CGame2048::makeMove(float pt_x, float pt_y) {
-    float distanceX = pt_x - startX;
-    float distanceY = pt_y - startY;
-    
-    if (distanceX < 0) {
-      distanceX *= -1;
-    }
-    if (distanceY < 0) {
-      distanceY *= -1;
-    }
 
-    if (distanceX > distanceY) {
-      if (pt_x > startX) {
-        m_BlockMng.swipeRight();
-        m_BlockMng.newBlock();
+  void CGame2048::makeMove(float pt_x, float pt_y) {
+    if (pt_x != startX && pt_y != startY) {
+      float distanceX = pt_x - startX;
+      float distanceY = pt_y - startY;
+
+      if (distanceX < 0) {
+        distanceX *= -1;
+      }
+      if (distanceY < 0) {
+        distanceY *= -1;
+      }
+
+      if (distanceX > distanceY) {
+        if (pt_x > startX) {
+          m_BlockMng.swipeRight();
+          m_BlockMng.newBlock();
+        }
+        else {
+          m_BlockMng.swipeLeft();
+          m_BlockMng.newBlock();
+        }
       }
       else {
-        m_BlockMng.swipeLeft();
-        m_BlockMng.newBlock();
-      }
-    }
-    else {
-      if (pt_y < startY) {
-        m_BlockMng.swipeUp();
-        m_BlockMng.newBlock();
-      }
-      else {
-        m_BlockMng.swipeDown();
-        m_BlockMng.newBlock();
+        if (pt_y < startY) {
+          m_BlockMng.swipeUp();
+          m_BlockMng.newBlock();
+        }
+        else {
+          m_BlockMng.swipeDown();
+          m_BlockMng.newBlock();
+        }
       }
     }
   }
@@ -115,11 +117,9 @@ namespace kpbl{
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 
-
 		m_BlockMng.initBlock(width, height);
 
 	}
-
 
 	void CGame2048::_SHOthogonal(float left, float bottom, float right, float top, float n, float f, float* pmatrix)
 	{

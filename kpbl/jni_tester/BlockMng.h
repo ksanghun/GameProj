@@ -1,13 +1,15 @@
 #pragma once
-
 #include "NumBlock.h"
 
 namespace kpbl{
 
+#define rowNum 4
+#define colNum 4
+#define totNum rowNum*colNum
+
 	class CBlockMng
 	{
-		CNumBlock m_testBlock[16];		// How many we need?? static allocation? dynamic allocation??
-
+		CNumBlock m_testBlock[totNum];		// How many we need?? static allocation? dynamic allocation??
 
 	public:
 		CBlockMng();
