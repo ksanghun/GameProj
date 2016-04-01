@@ -44,20 +44,7 @@ namespace kpbl{
 		//	glEnableClientState(GL_VERTEX_ARRAY);
 		//	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
-
 		m_BlockMng.drawBlocks();
-
-		// Jennie is testing from here ...
-
-		//m_BlockMng.swipeDown();
-		//m_BlockMng.swipeUp();
-		//m_BlockMng.swipeLeft();
-		m_BlockMng.swipeRight();
-
-		m_BlockMng.newBlock();
-
-		// ... until here
-
 
 		//	glDisableClientState(GL_VERTEX_ARRAY);
 		//	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
@@ -65,13 +52,44 @@ namespace kpbl{
 		m_FnCallback();
 	}
 
-	//by Tony
-	void CGame2048::checkPosition(float pt_x, float pt_y){
-		m_BlockMng.swipeDown();
-		m_BlockMng.swipeUp();
-		m_BlockMng.swipeLeft();
-		m_BlockMng.swipeRight();
+  float startX, startY;
+
+	void CGame2048::setStartPosition(float pt_x, float pt_y) {
+    startX = pt_x;
+    startY = pt_y;
 	}
+  void CGame2048::makeMove(float pt_x, float pt_y) {
+    float distanceX = pt_x - startX;
+    float distanceY = pt_y - startY;
+    
+    if (distanceX < 0) {
+      distanceX *= -1;
+    }
+    if (distanceY < 0) {
+      distanceY *= -1;
+    }
+
+    if (distanceX > distanceY) {
+      if (pt_x > startX) {
+        m_BlockMng.swipeRight();
+        m_BlockMng.newBlock();
+      }
+      else {
+        m_BlockMng.swipeLeft();
+        m_BlockMng.newBlock();
+      }
+    }
+    else {
+      if (pt_y < startY) {
+        m_BlockMng.swipeUp();
+        m_BlockMng.newBlock();
+      }
+      else {
+        m_BlockMng.swipeDown();
+        m_BlockMng.newBlock();
+      }
+    }
+  }
 
 	void CGame2048::RenderReady()
 	{

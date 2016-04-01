@@ -42,90 +42,98 @@ namespace kpbl{
 
 	// If you swipe up
 	void CBlockMng::swipeUp() {
-		int i = 0;
-		for (i = 4; i < 16; i++) {
-			bool a = m_testBlock[i].getEnable();
-			bool b = m_testBlock[i - 4].getEnable();
-			int aValue = m_testBlock[i].getValueOfBlock();
-			int bValue = m_testBlock[i - 4].getValueOfBlock();
-			if (a == true && b == false) {
-				m_testBlock[i].setEnable(0);
-				m_testBlock[i - 4].setEnable(1);
-				m_testBlock[i - 4].setValueOfBlock(aValue);
-			}
-			else if (a == true && b == true
-				&& aValue == bValue) {
-				m_testBlock[i].setEnable(0);
-				m_testBlock[i - 4].setValueOfBlock(bValue * 2);
-			}
-		}
+		int a, i;
+    for (a = 0; a < 4; a++) {
+      for (i = 4; i < 16; i++) {
+        bool a = m_testBlock[i].getEnable();
+        bool b = m_testBlock[i - 4].getEnable();
+        int aValue = m_testBlock[i].getValueOfBlock();
+        int bValue = m_testBlock[i - 4].getValueOfBlock();
+        if (a == true && b == false) {
+          m_testBlock[i].setEnable(0);
+          m_testBlock[i - 4].setEnable(1);
+          m_testBlock[i - 4].setValueOfBlock(aValue);
+        }
+        else if (a == true && b == true
+          && aValue == bValue) {
+          m_testBlock[i].setEnable(0);
+          m_testBlock[i - 4].setValueOfBlock(bValue * 2);
+        }
+      }
+    }
 	}
 
 	// If you swipe down
 	void CBlockMng::swipeDown() {
-		int i = 0;
-		for (i = 11; i >= 0; i--) {
-			bool a = m_testBlock[i].getEnable();
-			bool b = m_testBlock[i + 4].getEnable();
-			int aValue = m_testBlock[i].getValueOfBlock();
-			int bValue = m_testBlock[i + 4].getValueOfBlock();
-			if (a == true && b == false) {
-				m_testBlock[i].setEnable(0);
-				m_testBlock[i + 4].setEnable(1);
-				m_testBlock[i + 4].setValueOfBlock(aValue);
-			}
-			else if (a == true && b == true
-				&& aValue == bValue) {
-				m_testBlock[i].setEnable(0);
-				m_testBlock[i + 4].setValueOfBlock(bValue * 2);
-			}
-		}
+		int a, i;
+    for (a = 0; a < 4; a++) {
+      for (i = 11; i >= 0; i--) {
+        bool a = m_testBlock[i].getEnable();
+        bool b = m_testBlock[i + 4].getEnable();
+        int aValue = m_testBlock[i].getValueOfBlock();
+        int bValue = m_testBlock[i + 4].getValueOfBlock();
+        if (a == true && b == false) {
+          m_testBlock[i].setEnable(0);
+          m_testBlock[i + 4].setEnable(1);
+          m_testBlock[i + 4].setValueOfBlock(aValue);
+        }
+        else if (a == true && b == true
+          && aValue == bValue) {
+          m_testBlock[i].setEnable(0);
+          m_testBlock[i + 4].setValueOfBlock(bValue * 2);
+        }
+      }
+    }
 	}
 
 	// If you swipe left
 	void CBlockMng::swipeLeft() {
-		int i = 0;
-		for (i = 0; i < 16; i++) {
-			if (i != 0 && i != 4 && i != 8 && i != 12) {
-				bool a = m_testBlock[i].getEnable();
-				bool b = m_testBlock[i - 1].getEnable();
-				int aValue = m_testBlock[i].getValueOfBlock();
-				int bValue = m_testBlock[i - 1].getValueOfBlock();
-				if (a == true && b == false) {
-					m_testBlock[i].setEnable(0);
-					m_testBlock[i - 1].setEnable(1);
-					m_testBlock[i - 1].setValueOfBlock(aValue);
-				}
-				if (a == true && b == true
-					&& aValue == bValue) {
-					m_testBlock[i].setEnable(0);
-					m_testBlock[i - 1].setValueOfBlock(bValue * 2);
-				}
-			}
-		}
+    int a, i;
+    for (a = 0; a < 4; a++) {
+      for (i = 0; i < 16; i++) {
+        if (i != 0 && i != 4 && i != 8 && i != 12) {
+          bool a = m_testBlock[i].getEnable();
+          bool b = m_testBlock[i - 1].getEnable();
+          int aValue = m_testBlock[i].getValueOfBlock();
+          int bValue = m_testBlock[i - 1].getValueOfBlock();
+          if (a == true && b == false) {
+            m_testBlock[i].setEnable(0);
+            m_testBlock[i - 1].setEnable(1);
+            m_testBlock[i - 1].setValueOfBlock(aValue);
+          }
+          if (a == true && b == true
+            && aValue == bValue) {
+            m_testBlock[i].setEnable(0);
+            m_testBlock[i - 1].setValueOfBlock(bValue * 2);
+          }
+        }
+      }
+    }
 	}
 
 	// If you swipe right
 	void CBlockMng::swipeRight() {
-		int i = 0;
-		for (i = 15; i >= 0; i--) {
-			if (i != 3 && i != 7 && i != 11 && i != 15) {
-				bool a = m_testBlock[i].getEnable();
-				bool b = m_testBlock[i + 1].getEnable();
-				int aValue = m_testBlock[i].getValueOfBlock();
-				int bValue = m_testBlock[i + 1].getValueOfBlock();
-				if (a == true && b == false) {
-					m_testBlock[i].setEnable(0);
-					m_testBlock[i + 1].setEnable(1);
-					m_testBlock[i + 1].setValueOfBlock(aValue);
-				}
-				if (a == true && b == true
-					&& aValue == bValue) {
-					m_testBlock[i].setEnable(0);
-					m_testBlock[i + 1].setValueOfBlock(bValue * 2);
-				}
-			}
-		}
+    int a, i;
+    for (a = 0; a < 4; a++) {
+      for (i = 15; i >= 0; i--) {
+        if (i != 3 && i != 7 && i != 11 && i != 15) {
+          bool a = m_testBlock[i].getEnable();
+          bool b = m_testBlock[i + 1].getEnable();
+          int aValue = m_testBlock[i].getValueOfBlock();
+          int bValue = m_testBlock[i + 1].getValueOfBlock();
+          if (a == true && b == false) {
+            m_testBlock[i].setEnable(0);
+            m_testBlock[i + 1].setEnable(1);
+            m_testBlock[i + 1].setValueOfBlock(aValue);
+          }
+          if (a == true && b == true
+            && aValue == bValue) {
+            m_testBlock[i].setEnable(0);
+            m_testBlock[i + 1].setValueOfBlock(bValue * 2);
+          }
+        }
+      }
+    }
 	}
 
 

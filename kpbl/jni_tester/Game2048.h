@@ -21,8 +21,8 @@ namespace kpbl{
 		void RenderReady();
 		void Render();
 		unsigned int OnTouch(int x, int y);
-		//by Tony
-		void checkPosition(float pt_x, float pt_y);
+		void setStartPosition(float pt_x, float pt_y);
+    void makeMove(float pt_x, float pt_y);
 
 
 	private:

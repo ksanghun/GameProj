@@ -153,24 +153,22 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 	case WM_LBUTTONDOWN:
 		{		
-
-			POINT pt;
+      POINT pt;
 			pt.x=(long)LOWORD(lParam);
-			pt.y=(long)HIWORD(lParam);
-
-			
+			pt.y=(long)HIWORD(lParam);		
+      pGame->setStartPosition(pt.x, pt.y);
 		}
 		break;
 
 	case WM_LBUTTONUP:
 		{
-			POINT pt;
+      POINT pt;
 			pt.x = (long)LOWORD(lParam);
-			pt.y = (long)HIWORD(lParam);
-			
+			pt.y = (long)HIWORD(lParam);	
+      pGame->makeMove(pt.x, pt.y);
 		}
 		break;
-
+    
 	case WM_MOUSEMOVE:
 		{			
 		}
@@ -178,7 +176,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 	case WM_RBUTTONDOWN:
 		{
-			
 		}
 		break;
 
