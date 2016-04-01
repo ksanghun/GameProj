@@ -22,6 +22,9 @@ namespace kpbl{
 		unsigned int m_texid;
 		//===================//
 
+		// Jennie's addition
+		int valueOfBlock;
+
 
 	public:
 		CNumBlock();
@@ -34,6 +37,10 @@ namespace kpbl{
 		void setColor(float r, float g, float b);
 		void setPosition(float x, float y);
 		void setEnable(bool bLive);
+
+		bool getEnable();
+		void setValueOfBlock(int value);
+		int getValueOfBlock();
 
 	};
 

@@ -14,6 +14,14 @@ namespace kpbl{
 		~CBlockMng();
 
 		void initBlock(int screenWidth, int screenHeight);
+
+		void newBlock();
+
+		void swipeUp();
+		void swipeDown();
+		void swipeLeft();
+		void swipeRight();
+
 		void drawBlocks();
 
 	};

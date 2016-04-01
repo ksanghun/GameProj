@@ -21,7 +21,9 @@ namespace kpbl{
 		void RenderReady();
 		void Render();
 		unsigned int OnTouch(int x, int y);
-		
+		//by Tony
+		void checkPosition(float pt_x, float pt_y);
+
 
 	private:
 
@@ -29,7 +31,7 @@ namespace kpbl{
 
 		bool _Initialize3D();
 		void _SHOthogonal(float left, float bottom, float right, float top, float n, float f, float* pmatrix);
-		
+
 
 		// !!! For call back //
 		FnTestCallback m_FnCallback;

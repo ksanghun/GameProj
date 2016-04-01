@@ -1,5 +1,6 @@
 #include "Game2048.h"
 #include "string.h"
+
 namespace kpbl{
 
 	CGame2048::CGame2048()
@@ -17,21 +18,21 @@ namespace kpbl{
 		glAlphaFunc(GL_ALWAYS, 1.0f);
 
 		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
-	
 
-		glAlphaFunc(GL_GREATER, 0.5f);		
+
+		glAlphaFunc(GL_GREATER, 0.5f);
 		m_FnCallback();
 
 		return true;
 	}
 
 	bool CGame2048::Initialize(FnTestCallback pFN)
-	{		
+	{
 		m_FnCallback = pFN;
 
 		// Initialize OpenGL //
-		bool ret = _Initialize3D();		
-		
+		bool ret = _Initialize3D();
+
 		return ret;
 	}
 
@@ -40,17 +41,36 @@ namespace kpbl{
 		glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	//	glEnableClientState(GL_VERTEX_ARRAY);
-	//	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+		//	glEnableClientState(GL_VERTEX_ARRAY);
+		//	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
-		
+
 		m_BlockMng.drawBlocks();
-		
 
-	//	glDisableClientState(GL_VERTEX_ARRAY);
-	//	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+		// Jennie is testing from here ...
+
+		//m_BlockMng.swipeDown();
+		//m_BlockMng.swipeUp();
+		//m_BlockMng.swipeLeft();
+		m_BlockMng.swipeRight();
+
+		m_BlockMng.newBlock();
+
+		// ... until here
+
+
+		//	glDisableClientState(GL_VERTEX_ARRAY);
+		//	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 
 		m_FnCallback();
+	}
+
+	//by Tony
+	void CGame2048::checkPosition(float pt_x, float pt_y){
+		m_BlockMng.swipeDown();
+		m_BlockMng.swipeUp();
+		m_BlockMng.swipeLeft();
+		m_BlockMng.swipeRight();
 	}
 
 	void CGame2048::RenderReady()
@@ -68,7 +88,7 @@ namespace kpbl{
 		glEnableClientState(GL_VERTEX_ARRAY);
 		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
-		glEnable(GL_TEXTURE_2D);	
+		glEnable(GL_TEXTURE_2D);
 
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
@@ -77,7 +97,7 @@ namespace kpbl{
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
 
-		
+
 		m_BlockMng.initBlock(width, height);
 
 	}

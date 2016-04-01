@@ -6,7 +6,7 @@ namespace kpbl{
 	CNumBlock::CNumBlock()
 	{
 		m_pVertex = nullptr;
-		m_pTexCoord = nullptr;	
+		m_pTexCoord = nullptr;
 
 		init();
 	}
@@ -34,10 +34,10 @@ namespace kpbl{
 		m_color[2] = 1.0f;
 
 		if (m_pVertex != nullptr){
-			delete[] m_pVertex;			
+			delete[] m_pVertex;
 		}
 		if (m_pTexCoord != nullptr){
-			delete[] m_pTexCoord;			
+			delete[] m_pTexCoord;
 		}
 
 		m_pVertex = new float[3 * 6];
@@ -55,13 +55,17 @@ namespace kpbl{
 
 	void CNumBlock::setPosition(float x, float y)
 	{
-		m_position_x = x+m_width*0.5f;
-		m_position_y = y+m_height*0.5f;
+		m_position_x = x + m_width*0.5f;
+		m_position_y = y + m_height*0.5f;
 	}
 
 	void CNumBlock::setEnable(bool isLive)
 	{
 		m_bLive = isLive;
+	}
+
+	bool CNumBlock::getEnable() {
+		return m_bLive;
 	}
 
 	void CNumBlock::makeQuad(float width, float height)
@@ -75,15 +79,15 @@ namespace kpbl{
 
 		// 1. Triangle Geometry ==============================================//
 		// upper triangle - CCW //
-		m_pVertex[0] = -halfW;	m_pVertex[1] =  halfH;		m_pVertex[2] = 0.0f;
+		m_pVertex[0] = -halfW;	m_pVertex[1] = halfH;		m_pVertex[2] = 0.0f;
 		m_pVertex[3] = -halfW;	m_pVertex[4] = -halfH;		m_pVertex[5] = 0.0f;
-		m_pVertex[6] =  halfW;	m_pVertex[7] =  halfH;		m_pVertex[8] = 0.0f;
+		m_pVertex[6] = halfW;	m_pVertex[7] = halfH;		m_pVertex[8] = 0.0f;
 
 
 		// lower triangle - CCW //
-		m_pVertex[9]  = -halfW;	m_pVertex[10] = -halfH;		m_pVertex[11] = 0.0f;
-		m_pVertex[12] =  halfW;	m_pVertex[13] = -halfH;		m_pVertex[14] = 0.0f;
-		m_pVertex[15] =  halfW;	m_pVertex[16] =  halfH;		m_pVertex[17] = 0.0f;
+		m_pVertex[9] = -halfW;	m_pVertex[10] = -halfH;		m_pVertex[11] = 0.0f;
+		m_pVertex[12] = halfW;	m_pVertex[13] = -halfH;		m_pVertex[14] = 0.0f;
+		m_pVertex[15] = halfW;	m_pVertex[16] = halfH;		m_pVertex[17] = 0.0f;
 
 
 		// 2. Texture coordinates =================//
@@ -100,7 +104,7 @@ namespace kpbl{
 
 
 	void CNumBlock::draw()
-	{		
+	{
 		if (m_bLive){
 			glColor4f(m_color[0], m_color[1], m_color[2], 1.0f);
 		}
@@ -113,10 +117,19 @@ namespace kpbl{
 
 		glPushMatrix();
 		glTranslatef(m_position_x, m_position_y + Y_SHIFT, 0.0f);
-			glBindTexture(GL_TEXTURE_2D, m_texid);		
-			glDrawArrays(GL_TRIANGLES, 0, 6);
+		glBindTexture(GL_TEXTURE_2D, m_texid);
+		glDrawArrays(GL_TRIANGLES, 0, 6);
 		glPopMatrix();
 	}
 
+	// Jennie's addition
+	void CNumBlock::setValueOfBlock(int value) {
+		valueOfBlock = value;
+		setColor(value * 10, value*0.1, value);
+	}
+	// Jennie's addition
+	int CNumBlock::getValueOfBlock() {
+		return valueOfBlock;
+	}
 
 }
